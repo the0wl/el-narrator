@@ -1,0 +1,13 @@
+
+[N](0.3)my-narrator
+[M](0.015)Empty mind
+
+
+[V](1, 4)Transito
+[V](1, 5)Evolução
+
+subtitles
+(0.0, 3.0)Olá, bem vindo ao canal MyShortVideo
+(3.0, 9.0)Hoje falaremos sobre esta incrível ferramenta automatizada
+(9.0, 10.0)
+\subtitles
