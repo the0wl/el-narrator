@@ -5,6 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "setup": "npm install && pip install -r requirements.txt", 
     "text-to-speech": "node index.js assets/script/example.txt",
     "generate-video": "py video-generator/main.py",
     "dev": "text-to-speech && generate-video"

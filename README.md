@@ -2,29 +2,78 @@
 
 <h1>el-narrator</h1>
 
-<p>Gerador de narração utilizando a ferramenta elevenlabs.io</p>
+<p>Gerador de vídeos curtos narrados</p>
 
 </center>
 
 <br>
 
-## Pronúncia
+# Introdução
+
+A ferramenta aceita aúdios, legendas e vídeos, com o intuito de gerar vídeos curtos para postagens em plataformas de terceiros. No estado atual da aplicação os recursos serão consumidos localmente, porém no futuro será possível vincular com servidores remotos.
+
+## Recursos
+
+Dentro das pastas `/music`, `/subtitle`, `/video` devem ser populados com os recursos que você deseja utilizar nos vídeos gerados.
+
+Os recursos são utilizados por meio do arquivo localizado na pasta `/script/main.txt`. Dentro do arquivo é necessário criar uma seção para utilizar cada tipo de recurso. Abaixo um exemplo de como os conteúdos são consumidos.
+
+```
+narrator
+** Controles (volume, efeito, ...) **
+/narrator
+
+musics
+** Definir audios e controles para eles (corte, volume, efeito, ...) **
+/musics
+
+videos
+** Definir vídeos e controles para eles (corte, volume, efeito, ...) **
+/videos
+
+subtitles
+** Legendas do vídeo final **
+** Pode apontar um arquivo no formato .srt também **
+\subtitles
+```
+
+## Execução
+
+Dentro do arquivo `package.json` temos os seguintes scripts: `setup`, `text-to-speech`, `generate-video`, `dev`.
+
+- **setup:** instala os pacotes necessários para a execução da aplicação.
+- **text-to-speech:** executa a transformação das suas legendas em um aúdio.
+- **generate-video:** executa a criação do vídeo final.
+- **dev**: executa os comandos **text-to-speech** e **generate-video** em sequencia.
+
+Exemplo:
+
+```shell
+npm run setup
+npm run dev
+```
+
+## Narração
+
+Esta seção reune algumas informações importantes para que a narração gerada tenha uma qualidade aceitável e agradável ao telespectador.
+
+### Pronúncia
 
 Algumas palavras podem ter uma pronúncia estranha ou errada. Portanto, é importante revisar o texto alterando as partes necessárias, se está buscando uma qualidade maior. Exemplo:
 
 ```
-Olá, bem vindo ao canal Teste. Este conteúdo está sendo narrado pela ferramenta elevenlabs.io
+Olá, bem vindo ao canal Teste. Este conteúdo está sendo narrado pela ferramenta elnarrator.io
 ```
 
 Pode ser alterado para:
 
 ```
-Olá, bem vindo ao canal Teste. Este conteúdo está sendo narrado pela ferramenta elevenlabs ponto aio
+Olá, bem vindo ao canal Teste. Este conteúdo está sendo narrado pela ferramenta el narraitor ponto aio
 ```
 
-## Datas
+### Datas
 
-A IA da `elevenlabs` não lida bem com datas. Exemplo:
+A narração não lida bem com datas. Exemplo:
 
   ```
     16/06/2023
