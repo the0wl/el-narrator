@@ -1,7 +1,19 @@
 node_modules
+video-generator/__pycache__/
 
 # Environment
 .env
 
+# Assets
+assets/music/
+assets/subtitle/
+assets/video/
+script/
+
 # Build
-build
+build/audio/
+build/*.mp4
+
+# Temp
+*.mp4
+*.mp3
