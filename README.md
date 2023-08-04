@@ -1,6 +1,6 @@
 <center>
 
-<h1>el-narrator</h1>
+<h1>my-short-video</h1>
 
 <p>Gerador de vídeos curtos narrados</p>
 
