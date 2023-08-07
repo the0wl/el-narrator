@@ -1,8 +1,10 @@
-import { getSubtitles } from './src/text-input.js'
-import { textToSpeech } from './src/text-to-speech.js'
+import { getSubtitles } from './voice-generator/subtitles.js'
+import { textToSpeech } from './voice-generator/text-to-speech.js'
 
 const subtitles = getSubtitles()
 
-textToSpeech(subtitles).then((data) => {
-  console.log(data)
-})
+console.log(subtitles)
+
+//textToSpeech(subtitles).then((data) => {
+//  console.log(data)
+//})

@@ -18,7 +18,11 @@ export const getSubtitles = () => {
   rawSubtitles.pop()
   
   // Remove timestamp
-  const subtitlesText = rawSubtitles.map(x => x.substr(10)).join('\n')
+  const subtitlesText = rawSubtitles.map(x => x.substr(29)).join('\n')
 
   return subtitlesText
+}
+
+const getSRTSubtitles = () => {
+  return subtitlesText = data.match(/^(?!\d).+/gm)
 }

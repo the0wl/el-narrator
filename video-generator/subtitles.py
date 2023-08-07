@@ -40,14 +40,27 @@ def get_srt_subs(filename):
   subs = []
 
   for sub in subsArray:
-      subs.append(((str_to_sec(sub[0][0:8]), str_to_sec(sub[0][16:-3])), str(sub[1])))
- 
-  #falta uma legenda vazia
+      subs.append(((str_to_sec(sub[0][0:8]), str_to_sec(sub[0][16:-3])), str(sub[1]).strip()))
       
   return subs
   
 def get_subs(filename):
-  return []
+  with open(filename, "r", encoding="utf-8") as f:
+    lines = f.readlines()
+    data = ''.join(lines)
+
+  tmpSubsText = data.split('subtitles\n')[1]
+  subsArray = tmpSubsText.split('\\subtitles')[0].split('\n')
+  subsArray.pop()
+
+  subs = []
+
+  for sub in subsArray:
+    subs.append(((float(str_to_sec(sub[1:9])), float(str_to_sec(sub[17:25]))), str(sub[29:]).strip()))
+    
+  print(subs)
+  
+  return subs
 
 def str_to_sec(text):
   time_obj = time.strptime(text, '%H:%M:%S')

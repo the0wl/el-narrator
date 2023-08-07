@@ -1,7 +1,6 @@
 from moviepy.editor import (
   VideoFileClip,
   AudioFileClip,
-  TextClip,
   afx,
   concatenate_videoclips,
   CompositeVideoClip,
@@ -10,24 +9,8 @@ from moviepy.editor import (
 from moviepy.video.tools.subtitles import SubtitlesClip
 from subtitles import subtitles
 
-# Generates subtitles based on text file
-#with open("assets/script/example.txt", "r", encoding="utf-8") as f:
-#  lines = f.readlines()
-#  data = ''.join(lines)
-
-#tmpSubsText = data.split('subtitles\n')[1]
-#subsArray = tmpSubsText.split('\\subtitles')[0].split('\n')
-#subsArray.pop()
-
-#subs = []
-
-#for sub in subsArray:
-#  subs.append(((float(sub[1:4]), float(sub[6:9])), str(sub[10:])))
-
-#generator = lambda txt : TextClip(txt.encode(encoding = 'UTF-8', errors = 'strict'), font='Arial', fontsize=40, color='white', stroke_width=1.5, bg_color='black')
-#subtitles = SubtitlesClip(subs, generator)
-
-subtitles = subtitles('assets/script/example.srt')
+#subtitles = subtitles('assets/subtitle/example.srt')
+subtitles = subtitles('script/main.msv')
 
 # Create sounds (narration, musics, ...)
 
