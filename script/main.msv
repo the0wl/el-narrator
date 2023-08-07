@@ -1,10 +1,15 @@
+narrator
+(0.3)my-narrator
+\narrator
 
-[N](0.3)my-narrator
-[M](0.015)Empty mind
+musics
+(0.015)Empty mind
+\music
 
-
-[V](1, 4)Transito
-[V](1, 5)Evolução
+videos
+(1, 4)Transito
+(1, 5)Evolução
+\music
 
 subtitles
 (0.0, 3.0)Olá, bem vindo ao canal MyShortVideo

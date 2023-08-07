@@ -16,7 +16,7 @@ A ferramenta aceita aúdios, legendas e vídeos, com o intuito de gerar vídeos 
 
 Dentro das pastas `/music`, `/subtitle`, `/video` devem ser populados com os recursos que você deseja utilizar nos vídeos gerados.
 
-Os recursos são utilizados por meio do arquivo localizado na pasta `/script/main.txt`. Dentro do arquivo é necessário criar uma seção para utilizar cada tipo de recurso. Abaixo um exemplo de como os conteúdos são consumidos.
+Os recursos são utilizados por meio do arquivo localizado na pasta `/script/main.msv`. Dentro do arquivo é necessário criar uma seção para utilizar cada tipo de recurso. Abaixo temos um exemplo da composição do arquivo `.msv`.
 
 ```
 narrator

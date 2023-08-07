@@ -4,13 +4,6 @@ video-generator/__pycache__/*.pyc
 # Environment
 .env
 
-# Assets
-assets/music/*.mp3
-assets/subtitle/*.srt
-assets/subtitle/*.txt
-assets/video/*.mp4
-script/*.txt
-
 # Build
 build/audio/*.mp3
 build/*.mp4
