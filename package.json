@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "setup": "npm install && pip install -r video-generator/requirements.txt", 
-    "text-to-speech": "node index.js script/main.msv",
+    "text-to-speech": "node index.js script/main.msv", 
     "generate-video": "py video-generator/main.py",
     "dev": "text-to-speech && generate-video"
   },
