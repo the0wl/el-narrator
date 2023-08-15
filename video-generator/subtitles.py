@@ -4,8 +4,13 @@ from moviepy.video.tools.subtitles import SubtitlesClip
 import os
 import re
 import time
+import sys
 
-def subtitles(filename):
+SUBS_REGEX = '([0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{2}.{5}[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{2})\n(.+)?'
+
+def subtitles():
+  filename = sys.argv[1]
+  
   if not isinstance(filename, str):
     raise Exception("The `filename` parameter must be a string")
   
@@ -28,7 +33,6 @@ def subtitles(filename):
   return SubtitlesClip(subs, generator)
   
 def get_srt_subs(filename):
-  SUBS_REGEX = '([0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{2}.{5}[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{2})\n(.+)?'
   data = ''
   
   with open(filename, "r", encoding='utf-8') as f:
@@ -40,7 +44,7 @@ def get_srt_subs(filename):
   subs = []
 
   for sub in subsArray:
-      subs.append(((str_to_sec(sub[0][0:8]), str_to_sec(sub[0][16:-3])), str(sub[1]).strip()))
+    subs.append(((str_to_sec(sub[0][0:8]), str_to_sec(sub[0][16:-3])), str(sub[1]).strip()))
       
   return subs
   
@@ -50,15 +54,14 @@ def get_subs(filename):
     data = ''.join(lines)
 
   tmpSubsText = data.split('subtitles\n')[1]
-  subsArray = tmpSubsText.split('\\subtitles')[0].split('\n')
-  subsArray.pop()
+  rawSubtitles = tmpSubsText.split('\\subtitles')[0]
+
+  subsArray = re.findall(SUBS_REGEX, rawSubtitles)
 
   subs = []
 
   for sub in subsArray:
-    subs.append(((float(str_to_sec(sub[1:9])), float(str_to_sec(sub[17:25]))), str(sub[29:]).strip()))
-    
-  print(subs)
+    subs.append(((str_to_sec(sub[0][0:8]), str_to_sec(sub[0][16:-3])), str(sub[1]).strip()))
   
   return subs
 

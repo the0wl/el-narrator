@@ -6,9 +6,10 @@
   "main": "index.js",
   "scripts": {
     "setup": "npm install && pip install -r video-generator/requirements.txt", 
-    "text-to-speech": "node index.js script/main.msv", 
-    "generate-video": "py video-generator/main.py",
-    "dev": "text-to-speech && generate-video"
+    "text-to-speech": "node index.js assets/subtitle/example.srt",
+    "text-to-speech2": "node index.js script/main.msv",
+    "generate-video": "py video-generator/main.py script/main.msv 1920 1080",
+    "dev": "npm run text-to-speech && npm run generate-video"
   },
   "keywords": [],
   "author": "",

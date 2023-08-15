@@ -12,21 +12,12 @@ export const subtitles = () => {
   return (extension === 'srt') ? getSRTSubtitles(data) : getSubtitles(data)
 }
 
-// Given the whole text from a '.msv' file:
-// - Remove all text outside `subtitles` to `/subtitles` area
-// - Remove empty line last position
-// - Remove timestamp
-
 const getSubtitles = (data) => {
-  const rawSubtitles = data.split('subtitles\r\n')[1].split('\\subtitles')[0].split('\r\n')
-  rawSubtitles.pop()
-  const subtitlesText = rawSubtitles.map(x => x.substr(29)).join('\n')
-
-  return subtitlesText
+  const rawSubtitles = data.split('subtitles\r\n')[1].split('\\subtitles')[0].split('\r\n').join('\n')
+  
+  return rawSubtitles.match(/^(?!\d).+/gm).join('\n')
 }
 
-// Given the whole text from a '.srt' file:
-// - Remove timestamp
 const getSRTSubtitles = (data) => {
   return data.match(/^(?!\d).+/gm).join('\n')
 }

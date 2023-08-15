@@ -1,5 +1,4 @@
 node_modules
-video-generator/__pycache__/*.pyc
 
 # Environment
 .env
@@ -11,3 +10,4 @@ build/*.mp4
 # Temp
 *.mp4
 *.mp3
+*.pyc
